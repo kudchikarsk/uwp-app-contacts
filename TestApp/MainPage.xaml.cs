@@ -36,15 +36,14 @@ namespace TestApp
 
         private async void OnSuspending(object sender, SuspendingEventArgs e)
         {
-            var deferral = e.SuspendingOperation.GetDeferral();
-            var contacts = contactListView.Items.OfType<Contact>().ToList();
-            await repository.Save(contacts);
+            var deferral = e.SuspendingOperation.GetDeferral();            
+            await repository.Save();
             deferral.Complete();
         }
 
         private async void OnWindowLoad(object sender, RoutedEventArgs e)
         {
-            var contacts = await repository.LoadContactsAsync();
+            var contacts = await repository.Get();
             contacts.ForEach(c => contactListView.Items.Add(c));
             
         }
@@ -88,12 +87,15 @@ namespace TestApp
                 contact.FirstName = firstName.Text;
                 contact.LastName = lastName.Text;
                 contact.PhoneNumber = phoneNumber.Text;
+                repository.Update(contact);
             }
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private async void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            var contacts = await repository.Get(searchTerm.Text);
+            contactListView.Items.Clear();
+            contacts.ForEach(c => contactListView.Items.Add(c));
         }
     }
 }
