@@ -34,6 +34,11 @@ namespace TestApp.Utils
                .ToList();
         }
 
+        public void Add(Contact contact)
+        {
+            _contacts.Add(contact);
+        }
+
         public void Update(Contact contact)
         { 
             //do nothing
@@ -71,5 +76,7 @@ namespace TestApp.Utils
 
             }
         }
+
+        
     }
 }

@@ -50,46 +50,18 @@ namespace TestApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            contactListView.Items.Add(new Contact() { FirstName="New"});
+            var contact = new Contact() { FirstName = "New", LastName="", PhoneNumber="" };
+            contactListView.Items.Add(contact);
+            repository.Add(contact);
         }
 
         private void contactListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var contact = contactListView.SelectedItem as Contact;
-            if (contact != null) 
-            {
-                firstName.Text = contact.FirstName ?? "";
-                lastName.Text = contact.LastName ?? "";
-                phoneNumber.Text = contact.PhoneNumber ?? "";
-            }
+            contactDetails.Contact = contact;
         }
 
-        private void firstName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            UpdateContact();
-        }
-
-        private void lastName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            UpdateContact();
-        }
-
-        private void phoneNumber_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            UpdateContact();
-        }
-
-        private void UpdateContact()
-        {
-            var contact = contactListView.SelectedItem as Contact;
-            if (contact != null)
-            {
-                contact.FirstName = firstName.Text;
-                contact.LastName = lastName.Text;
-                contact.PhoneNumber = phoneNumber.Text;
-                repository.Update(contact);
-            }
-        }
+        
 
         private async void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
