@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:controls="using:TestApp.Controls"
+	xmlns:model="using:TestApp.Utils"
 	mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -31,7 +32,7 @@
 
 
 		</Grid>
-		<controls:ContactDetails Grid.Column="1" VerticalAlignment="Top" Grid.RowSpan="2" x:Name="contactDetails">
+		<controls:ContactDetails Grid.Column="1" VerticalAlignment="Top" Grid.RowSpan="2" x:Name="contactDetails" Contact="Shadman,Kudchikar,9769141870">
 			
 		</controls:ContactDetails>
 	</Grid>

@@ -1,8 +1,10 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Windows.Foundation.Metadata;
 
 namespace TestApp.Utils
 {
+    [CreateFromString(MethodName = "TestApp.Utils.ContactExtension.Convert")]
     public class Contact : Observable
     {
         private string firstName;
