@@ -10,7 +10,7 @@
 	mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-
+	
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="65*"/>
@@ -20,7 +20,7 @@
 			<ColumnDefinition/>
 			<ColumnDefinition Width="2*"/>
 		</Grid.ColumnDefinitions>
-		<Grid Grid.RowSpan="2">
+		<Grid Grid.RowSpan="2" Background="{ThemeResource bgColor}">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="70"/>
 				<RowDefinition Height="50"/>
@@ -32,7 +32,7 @@
 
 
 		</Grid>
-		<controls:ContactDetails Grid.Column="1" VerticalAlignment="Top" Grid.RowSpan="2" x:Name="contactDetails" Contact="Shadman,Kudchikar,9769141870">
+		<controls:ContactDetails Grid.Column="1" VerticalAlignment="Top" Grid.RowSpan="2" x:Name="contactDetails">
 			
 		</controls:ContactDetails>
 	</Grid>
